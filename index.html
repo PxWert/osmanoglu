@@ -109,18 +109,18 @@
         .made-in-maras { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; font-weight: 600; color: var(--primary); background: rgba(139, 69, 19, 0.1); padding: 0.5rem 1rem; border-radius: 50px; }
         .made-in-maras i { color: var(--accent); }
 
-        /* About Section */
+        /* About Section - DÜZELTME: Metin görünürlüğü */
         .about { padding: 6rem 2rem; background: var(--white); }
         .about-container { max-width: 1400px; margin: 0 auto; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
         .about-images { position: relative; }
         .about-img-main { width: 100%; border-radius: 30px; box-shadow: var(--shadow); }
         .about-img-secondary { position: absolute; bottom: -30px; right: -30px; width: 250px; border-radius: 20px; box-shadow: var(--shadow); border: 5px solid var(--white); }
         .about-content h2 { font-size: 3rem; color: var(--primary-dark); margin-bottom: 1.5rem; }
-        .about-content p { color: var(--text); margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.05rem; }
+        .about-content p { color: var(--text); margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.05rem; word-wrap: break-word; overflow-wrap: break-word; }
         .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
         .about-feature { display: flex; align-items: flex-start; gap: 1rem; }
-        .about-feature i { font-size: 1.5rem; color: var(--accent); margin-top: 0.2rem; }
+        .about-feature i { font-size: 1.5rem; color: var(--accent); margin-top: 0.2rem; flex-shrink: 0; }
         .about-feature h4 { font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 0.3rem; }
         .about-feature p { font-size: 0.9rem; color: var(--text-light); margin: 0; }
 
@@ -139,7 +139,23 @@
         .timeline-title { font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 0.5rem; }
         .timeline-text { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
 
-        /* Contact Section */
+        /* Reviews Section - YENİ */
+        .reviews { padding: 6rem 2rem; background: var(--white); }
+        .reviews-container { max-width: 1400px; margin: 0 auto; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .review-card { background: var(--light); border-radius: 24px; padding: 2.5rem; position: relative; transition: var(--transition); border: 1px solid rgba(139, 69, 19, 0.1); }
+        .review-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .review-google-badge { position: absolute; top: 1.5rem; right: 1.5rem; display: flex; align-items: center; gap: 0.5rem; background: var(--white); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--text-light); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .review-google-badge i { color: #4285F4; font-size: 1rem; }
+        .review-stars { color: var(--accent); font-size: 1rem; margin-bottom: 1rem; margin-top: 0.5rem; }
+        .review-text { color: var(--text); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+        .review-text::before { content: '"'; font-size: 2rem; color: var(--accent); line-height: 1; }
+        .review-author { display: flex; align-items: center; gap: 1rem; }
+        .review-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 700; font-size: 1.2rem; }
+        .review-author-info h4 { font-size: 1rem; color: var(--primary-dark); margin-bottom: 0.2rem; }
+        .review-author-info p { font-size: 0.85rem; color: var(--text-light); }
+
+        /* Contact Section - DÜZELTME: Kartlar ortalandı */
         .contact { padding: 6rem 2rem; background: var(--white); }
         .contact-container { max-width: 1400px; margin: 0 auto; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
@@ -175,15 +191,30 @@
         .footer-column ul li a:hover { color: var(--accent); padding-left: 5px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
 
-        /* ===== MOBILE FIXES ===== */
+        /* ===== MOBILE FIXES - DÜZELTİLMİŞ ===== */
         @media (max-width: 1024px) {
             .hero-container, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
             .hero-content h1 { font-size: 3rem; }
             .about-images { order: -1; }
             .about-img-secondary { display: none; }
-            .timeline::before { left: 30px; }
-            .timeline-item, .timeline-item:nth-child(even) { width: 100%; margin-left: 0; padding-left: 5rem; padding-right: 0; justify-content: flex-start; }
-            .timeline-item:nth-child(odd) .timeline-content::before, .timeline-item:nth-child(even) .timeline-content::before { left: -52px; right: auto; }
+
+            /* DÜZELTME: Timeline çizgisi ve içerik hizalaması düzeltildi */
+            .timeline::before { left: 2rem; }
+            .timeline-item, .timeline-item:nth-child(even) { 
+                width: 100%; 
+                margin-left: 0; 
+                padding-left: 4.5rem; 
+                padding-right: 1rem; 
+                justify-content: flex-start; 
+            }
+            .timeline-item:nth-child(odd) .timeline-content::before, 
+            .timeline-item:nth-child(even) .timeline-content::before { 
+                left: -2.6rem; 
+                right: auto; 
+            }
+
+            /* YENİ: Reviews grid tablet için */
+            .reviews-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -197,12 +228,114 @@
             .products-grid { grid-template-columns: 1fr; }
             .about-features { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+            /* DÜZELTME: Floating badge'ler mobilde gizlendi */
             .floating-badge { display: none; }
+
+            /* DÜZELTME: Hero görsel rotasyonu mobilde kaldırıldı */
+            .hero-image img { 
+                transform: rotate(0deg); 
+                width: 100%; 
+                max-width: 100%; 
+            }
+
+            /* DÜZELTME: Search box mobilde tam genişlik */
+            .search-box { 
+                min-width: 100%; 
+                width: 100%; 
+            }
+
+            /* DÜZELTME: About metin görünürlüğü mobilde */
+            .about-content p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            /* DÜZELTME: Contact kartları mobilde ortalandı */
+            .contact-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1rem;
+            }
+            .contact-icon {
+                margin-bottom: 0.5rem;
+            }
+            .contact-details {
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
+            /* DÜZELTME: Font boyutları küçük ekranlar için ayarlandı */
+            .hero-content h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.8rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-description { font-size: 0.95rem; }
+
+            /* DÜZELTME: Butonlar mobilde içeriğe göre boyutlandırıldı */
+            .btn { 
+                width: auto; 
+                padding: 0.8rem 1.5rem; 
+                font-size: 0.9rem; 
+            }
+
+            /* DÜZELTME: About başlık küçük ekran */
+            .about-content h2 { font-size: 2rem; }
+
             .footer-grid { grid-template-columns: 1fr; }
-            .contact-card { flex-direction: column; text-align: center; }
+
+            /* YENİ: Reviews kartları mobil */
+            .reviews-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .review-card { padding: 1.5rem; }
+            .review-google-badge { 
+                position: static; 
+                margin-bottom: 1rem; 
+                display: inline-flex;
+            }
+        }
+
+        /* DÜZELTME: Hover efektleri dokunmatik ekranlarda devre dışı */
+        @media (hover: none) {
+            .product-card:hover { 
+                transform: none; 
+                box-shadow: var(--shadow); 
+            }
+            .product-card:hover .product-image { 
+                transform: none; 
+            }
+            .feature-card:hover { 
+                transform: none; 
+                box-shadow: none; 
+                border-color: rgba(139, 69, 19, 0.1); 
+            }
+            .feature-card:hover .feature-icon { 
+                transform: none; 
+            }
+            .contact-card:hover { 
+                transform: none; 
+                border-color: transparent; 
+            }
+            .btn:hover { 
+                transform: none; 
+            }
+            .btn-primary:hover { 
+                background: var(--primary); 
+                box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3); 
+            }
+            .btn-secondary:hover { 
+                background: transparent; 
+                color: var(--primary); 
+            }
+            .social-links a:hover { 
+                transform: none; 
+            }
+            .hero-image img:hover { 
+                transform: rotate(0deg); 
+            }
+            .review-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
         }
 
         /* Animations */
@@ -237,6 +370,7 @@
                 <li><a href="#anasayfa" class="active">Ana Sayfa</a></li>
                 <li><a href="#urunler">Ürünler</a></li>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#yorumlar">Yorumlar</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -578,7 +712,6 @@
             </div>
         </div>
     </section>
-
     <!-- About Section -->
     <section class="about" id="hakkimizda">
         <div class="about-container">
@@ -672,6 +805,84 @@
                         <div class="timeline-year">Günümüz</div>
                         <h3 class="timeline-title">Osmanoğlu Kalitesi</h3>
                         <p class="timeline-text">Geleneksel lezzeti modern hijyen standartlarıyla buluşturan Osmanoğlu Tarhana, Kahramanmaraş'ın en çok tercih edilen tarhana markası olarak yolculuğuna devam ediyor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section - YENİ -->
+    <section class="reviews" id="yorumlar">
+        <div class="reviews-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Müşteri Yorumları</span>
+                <h2 class="section-title">Sizden Gelenler</h2>
+                <p class="section-subtitle">Google üzerinden bize ulaşan değerli yorumlarınız</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-google-badge">
+                        <i class="fab fa-google"></i>
+                        Google Yorumları
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Bu şeyin ne olduğunu bilmiyorum ama hiç beklemezdim. Abartısız haftada 3 paket bitirdiğim üründen</p>
+                    <div class="review-author">
+                        <div class="review-avatar">A</div>
+                        <div class="review-author-info">
+                            <h4>Ahmet Y.</h4>
+                            <p>Doğrulanmış Müşteri</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-google-badge">
+                        <i class="fab fa-google"></i>
+                        Google Yorumları
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Maraşta yiyebileceğiniz en iyi tarhana buranındır. İsim yapıp millete pahalı ürün satan yerlere benzemiyor. Yıllardır alırım. Gerçekten kaliteli ürünler.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">M</div>
+                        <div class="review-author-info">
+                            <h4>Mehmet K.</h4>
+                            <p>Doğrulanmış Müşteri</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-google-badge">
+                        <i class="fab fa-google"></i>
+                        Google Yorumları
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Atıştırmalık fabrika ürünleri yerine cips tarhana alıyoruz ve çok lezzetli. Yoğurttan gelen ekşi tat süper. Favori yiyeceğimiz.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">S</div>
+                        <div class="review-author-info">
+                            <h4>Selin D.</h4>
+                            <p>Doğrulanmış Müşteri</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -798,6 +1009,7 @@
                         <li><a href="#anasayfa">Ana Sayfa</a></li>
                         <li><a href="#urunler">Ürünler</a></li>
                         <li><a href="#hakkimizda">Hakkımızda</a></li>
+                        <li><a href="#yorumlar">Yorumlar</a></li>
                         <li><a href="#iletisim">İletişim</a></li>
                     </ul>
                 </div>
@@ -924,12 +1136,13 @@
                 const filter = btn.getAttribute('data-filter');
 
                 productCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    const matches = filter === 'all' || card.getAttribute('data-category') === filter;
+
+                    if (matches) {
                         card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 50);
+                        void card.offsetWidth;
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
                     } else {
                         card.style.opacity = '0';
                         card.style.transform = 'translateY(20px)';
@@ -948,13 +1161,13 @@
             productCards.forEach(card => {
                 const title = card.querySelector('.product-title').textContent.toLowerCase();
                 const category = card.querySelector('.product-category').textContent.toLowerCase();
+                const matches = title.includes(searchTerm) || category.includes(searchTerm);
 
-                if (title.includes(searchTerm) || category.includes(searchTerm)) {
+                if (matches) {
                     card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
+                    void card.offsetWidth;
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
                 } else {
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(20px)';
